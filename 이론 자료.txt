@@ -1,0 +1,13 @@
+터미널에 입력 :
+npx create-react-app basic --template typescript
+- 타입스크립트 기반의 'basic'이름의 리엑트 파일을 구성한다
+
+npm run start
+: 새로운 브라우저 (localhost 3000) 가 열리며 리엑트 심볼이 돌아간다 __ node.js 가 먼저 깔려있어야한다 
+
+git 에 올릴 때, node_modules 파일은 .gitignore 되어있어 안 올라간다.
+-> 끌어와서 작업을 하려면, 터미널에 `npm install` 을 입력하면 다시 받아진다 
+
+
+
+확장에 ES7+ React/Redux/React-Native snippets 설치 (단축명령어를 제공해준다)
