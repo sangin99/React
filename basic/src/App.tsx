@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Component from './component/Component';
 import Sample from './component/Component';
+import SignInContainer from './component/example/SignInContainer';
 
 // JSX / TSX : 
 // JSX (JavaScript XML) / TSX (TypeScript XML)
@@ -71,8 +72,9 @@ function App() {
         <div>
             {/* <ClassComponent />
             <FunctionComponent /> */}
-            <Component/>
-            <Sample />
+            {/* <Component/>
+            <Sample /> */}
+            <SignInContainer />
         </div>
     );
 }

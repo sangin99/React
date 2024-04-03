@@ -8,6 +8,6 @@ npm run start
 git 에 올릴 때, node_modules 파일은 .gitignore 되어있어 안 올라간다.
 -> 끌어와서 작업을 하려면, 터미널에 `npm install` 을 입력하면 다시 받아진다 
 
-
-
 확장에 ES7+ React/Redux/React-Native snippets 설치 (단축명령어를 제공해준다)
+
+서버 전체를 켜야하기때문에 `npm run start` 를 입력하면 서버(화면)가 켜진다

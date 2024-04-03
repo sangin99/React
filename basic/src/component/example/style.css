@@ -1,0 +1,80 @@
+
+#sign-in-wrapper {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    min-height: 1024px;
+    
+}
+
+.sign-in-box {
+    display: flex;
+    justify-content: center;       /*중앙정렬 : 좌우*/
+    align-items: center;            /*중앙정렬 : 상하*/
+
+    flex-grow: 1;
+    min-width: 610px;
+}
+
+.sign-in-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:24px;
+
+    width: 380px;
+    height: 523px;
+}
+
+.sign-in-title {
+    color: rgba(64,64,64,1);
+
+}
+
+.sign-in-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+
+    width: 100%;
+}
+
+.sign-in-input-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+
+    width: 100%;
+}
+
+
+.sign-in-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+
+    width: 100% ;
+}
+
+.sign-in-sns-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+}
+
+
+
+/* 
+css로 꾸미기 위해서는 2개의 방법이 존재한다.
+1. 상대적 경로로 선택 / 2. 직접 선택
+
+id 로 선택하는 건 #
+class 로 선택하는 건 .
+배경이미지는 url 로 경로 지정
+background-size: cover -> 창을 줄이면 그에 맞게 줄어든다
+flex-grow : 내부에서 할당 가능한 공간의 정도
+:: - 속성 선택자
+*/
