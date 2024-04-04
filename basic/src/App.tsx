@@ -3,6 +3,7 @@ import './App.css';
 import Component from './component/Component';
 import Sample from './component/Component';
 import SignInContainer from './component/example/SignInContainer';
+import CurlyBraces from './component/CurlyBraces';
 
 // JSX / TSX : 
 // JSX (JavaScript XML) / TSX (TypeScript XML)
@@ -69,13 +70,14 @@ function FunctionComponent () {
 
 function App() {
     return ( 
-        <div>
+        <>
             {/* <ClassComponent />
             <FunctionComponent /> */}
             {/* <Component/>
             <Sample /> */}
-            <SignInContainer />
-        </div>
+            {/* <SignInContainer /> */}
+            <CurlyBraces />
+        </>
     );
 }
 

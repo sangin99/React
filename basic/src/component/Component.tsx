@@ -29,8 +29,7 @@ function JsxComponent () {
         <>
             <h1>첫번째 페이지 입니다</h1>
             <div>
-                <img src='https://flexible.img.hani.co.kr/flexible/normal/
-                960/960/imgdb/resize/2019/0121/00501111_20190121.JPG' 
+                <img src='https://flexible.img.hani.co.kr/flexible/normal/960/960/imgdb/resize/2019/0121/00501111_20190121.JPG' 
                 className='image-box' />   
             </div>
     </>
