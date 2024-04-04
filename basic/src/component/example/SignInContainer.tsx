@@ -13,7 +13,7 @@ import './common.css';
 export default function SignInContainer() {
   return (
     <>
-    <IdInputBox />
+    <IdInputBox label="아이디" type="text" placeholder = "아이디를 입력해주세요" />
     <PasswordInputBox />
     </>
   );
