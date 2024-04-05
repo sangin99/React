@@ -38,8 +38,10 @@ export default function InputBox({ label, type, placeholder, buttonTitle }: Prop
                     type={type}
                     placeholder={placeholder}
                 />
+                { buttonTitle &&
                 <div className="input-disable-button"> {buttonTitle}
                 </div>
+                }
             </div>
             <div className="input-message"></div>
         </div>
