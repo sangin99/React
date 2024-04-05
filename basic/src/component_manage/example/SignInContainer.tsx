@@ -18,6 +18,7 @@ export default function SignInContainer() {
       <InputBox label='비밀번호 확인' type='password' placeholder='비밀번호를 입력하세요.' />
       <InputBox label='이메일' type='text' placeholder='이메일을 입력하세요.' buttonTitle='이메일 인증' />
       <InputBox label='인증번호' type='text' placeholder='인증번호 4자리를 입력하세요.' buttonTitle='인증 확인'/>
+      {/* 반복작업을 깔끔하게 하기 : for문을 사용할 수 없는 상황에서 ... "리스트렌더링"!! */}
     </>
   );
 }
