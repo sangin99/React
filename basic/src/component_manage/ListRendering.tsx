@@ -32,6 +32,9 @@ export default function ListRendering() {
         {name: '박민수', age: 12, job: '학생'}
     ];
 
+    const students = humans.filter(item => item.job === '학생');
+
+
     // humans.forEach((item, index) => {
     //     <ListItem name={item.name} age={item.age} job={item.job} />
     //! }); => undefined 형태
@@ -39,6 +42,14 @@ export default function ListRendering() {
     // humans.map((item, index) => {
     //     return <ListItem name={item.name} age={item.age} job={item.job} />
     //! }) => [ListItem, ListItem, ListItem, ListItem] 형태
+
+
+    // - JSX에 리스트 고급 함수를 사용할 때 결과를 반환하는 함수를 사용해야함
+    // - foreach X -> map O
+    // - 특정 조건에 해당하는 요소만 출력하고 싶으면 filter 메서드를 응용해서 사용
+    
+    // - 완전 단순한 반복(횟수 반복)을 사용할 땐 반복하고자하는 횟수의 길이를 가지는 배열을 생성해서 해당 배열로 반복작업
+    const count = new Array(3).fill(0);
 
     return (
         <>
@@ -52,10 +63,12 @@ export default function ListRendering() {
             {humans.map((item, index) => {
                 //? return <ListItem name={item.name} age={item.age} job={item.job} />
                 // = 동일한 식
-                return <ListItem {...item} />
-            })}
+                return <ListItem key={index} {...item} />     // key 값은 필수는 아니다 : 추천 : 항목 유지의 이유
+            })}    
 
-            {humans.map(item => <ListItem {...item} />)}
+            {humans.map(item => <ListItem key={item.name} {...item} />)}
+            {students.map(item => <ListItem {...item} />)}
+            {count.map(item => <h1 key={item}>반복 아이템</h1>)}
 
 
             {/* <ListItem name='홍길동' age={20} job='학생' />
