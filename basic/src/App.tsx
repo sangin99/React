@@ -8,6 +8,8 @@ import Properties from './component_manage/Properties';
 import SignInContainer from './component_manage/example/SignInContainer';
 import ConditionalRendering from './component_manage/ConditionalRendering';
 import ListRendering from './component_manage/ListRendering';
+import EventComponent from './interaction/EventComponent';
+
 
 // JSX / TSX : 
 // JSX (JavaScript XML) / TSX (TypeScript XML)
@@ -79,11 +81,12 @@ function App() {
             <FunctionComponent /> */}
             {/* <Component/>
             <Sample /> */}
-            <SignInContainer />
+            {/* <SignInContainer /> */}
             {/* <CurlyBraces /> */}
             {/* <Properties /> */}
             {/* <ConditionalRendering /> */}
             {/* <ListRendering /> */}
+            <EventComponent />
         </>
     );
 }
