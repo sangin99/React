@@ -22,7 +22,7 @@ function SubComponent1 ({ count, onClickHandler }: Sub1Props) {
 
 function SubComponent2 (props: Sub1Props) {
 
-    const [numbers, setNumbers] = useState<number[]>([])
+    const [numbers, setNumbers] = useState<number[]>([]);
 
     const onClickHandler = () => {
         numbers.push(0);

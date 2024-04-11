@@ -1,4 +1,5 @@
 import React from 'react'
+import EventComponent from '../../interaction/EventComponent';
 
 // export function InputBox2 () {
 
@@ -31,6 +32,7 @@ export interface InputBoxProps {
 export default function InputBox({ label, type, placeholder, buttonTitle }: InputBoxProps) {
     return (
         <div className="input-box">
+            <EventComponent />
             <div className="input-label label">{label}</div>
             <div className="input-content-box">
                 <input
