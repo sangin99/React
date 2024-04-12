@@ -120,13 +120,29 @@ function SignUp({ onLinkClickHandler }: Props) {
     const onPasswordChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         const { value } = event.target;
         setPassword(value);
-        setPasswordMessage('');
+
+        const passwordPattern = /^(?=.*[a-zA-Z])(?=.*[0-9]).{8,13}$/;
+        const isPasswordPattern = passwordPattern.test(value);
+        const passwordMessage = 
+            isPasswordPattern ? '' : 
+            value ? '영문, 숫자를 혼용하여 8 ~ 13자 입력해주세요.' : '';
+        setPasswordMessage(passwordMessage);
+        
+        const isEqualPassword = passwordCheck === value;
+        const passwordCheckMessage = 
+            isEqualPassword ? '' : 
+            passwordCheck ? '비밀번호가 일치하지 않습니다.' : '';
+        setPasswordCheckMessage(passwordCheckMessage);
     };
 
     const onPasswordCheckChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
         const { value } = event.target;
         setPasswordCheck(value);
-        setPasswordCheckMessage('');
+        const isEqualPassword = password === value;
+        const passwordCheckMessage = 
+            isEqualPassword ? '' : 
+            value ? '비밀번호가 일치하지 않습니다.' : '';
+        setPasswordCheckMessage(passwordCheckMessage);
     };
 
     const onEmailChangeHandler = (event: ChangeEvent<HTMLInputElement>) => {
@@ -151,15 +167,15 @@ function SignUp({ onLinkClickHandler }: Props) {
 
         const idCheck = id !== 'admin';
         setIdCheck(idCheck);
-        setIdCheck(!idCheck);
+        setIdError(!idCheck);
 
-        const idMessage = idCheck ? '사용 가능한 아이디 입니다.' : '이미 사용중인 아이디입니다.';
+        const idMessage = idCheck ? '사용 가능한 아이디입니다.' : '이미 사용중인 아이디입니다.';
         setIdMessage(idMessage);
     };
 
     const onEmailButtonClickHandler = () => {
         if(!emailButtonStatus) return;
-        
+
         const emailPattern = /^[a-zA-Z0-9]*@([-.]?[a-zA-Z0-9])*\.[a-zA-Z]{2,4}$/;
         const isEmailPattern = emailPattern.test(email);
         setEmailCheck(isEmailPattern);
@@ -171,7 +187,7 @@ function SignUp({ onLinkClickHandler }: Props) {
 
     const onAuthNumberButtonClickHandler = () => {
         if(!authNumberButtonStatus) return;
-        
+
         const authNumberCheck = authNumber === '1234';
         setAuthNumberCheck(authNumberCheck);
         setAuthNumberError(!authNumberCheck);
@@ -192,16 +208,16 @@ function SignUp({ onLinkClickHandler }: Props) {
             <div className="short-divider"></div>
             <div className="authentication-input-container">
 
-                <InputBox label="아이디" type="text" value={id} placeholder="아이디를 입력해주세요" onChangeHandler={onIdChangeHandler} buttonTitle="중복 확인" buttonStatus={idButtonStatus} onButtonClickHandler={onIdButtonClickHandler} error={false} message="사용 가능한 아이디입니다." />
+                <InputBox label="아이디" type="text" value={id} placeholder="아이디를 입력해주세요" onChangeHandler={onIdChangeHandler} buttonTitle="중복 확인" buttonStatus={idButtonStatus} onButtonClickHandler={onIdButtonClickHandler} message={idMessage} error={isIdError} />
 
-                <InputBox label="비밀번호" type="password" value={password} placeholder="비밀번호를 입력해주세요" onChangeHandler={onPasswordChangeHandler} />
+                <InputBox label="비밀번호" type="password" value={password} placeholder="비밀번호를 입력해주세요" onChangeHandler={onPasswordChangeHandler} message={passwordMessage} error />
 
-                <InputBox label="비밀번호 확인" type="password" value={passwordCheck} placeholder="비밀번호를 입력해주세요" onChangeHandler={onPasswordCheckChangeHandler} />
+                <InputBox label="비밀번호 확인" type="password" value={passwordCheck} placeholder="비밀번호를 입력해주세요" onChangeHandler={onPasswordCheckChangeHandler} message={passwordCheckMessage} error />
 
                 <InputBox label="이메일" type="text" value={email} placeholder="이메일을 입력해주세요" onChangeHandler={onEmailChangeHandler} buttonTitle="이메일 인증" buttonStatus={emailButtonStatus} onButtonClickHandler={onEmailButtonClickHandler} message={emailMessage} error={isEmailError} />
 
                 {isEmailCheck && 
-                <InputBox label="인증번호" type="text" value={authNumber} placeholder="인증번호 4자리를 입력해주세요" onChangeHandler={onAuthNumberChangeHandler} buttonTitle="인증 확인" buttonStatus={authNumberButtonStatus} onButtonClickHandler={onAuthNumberButtonClickHandler} />}
+                <InputBox label="인증번호" type="text" value={authNumber} placeholder="인증번호 4자리를 입력해주세요" onChangeHandler={onAuthNumberChangeHandler} buttonTitle="인증 확인" buttonStatus={authNumberButtonStatus} onButtonClickHandler={onAuthNumberButtonClickHandler} message={authNumberMessage} error={isAuthNumberError} />}
 
             </div>
             <div className="authentication-button-container">
