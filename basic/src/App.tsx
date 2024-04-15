@@ -11,6 +11,7 @@ import ListRendering from './component_manage/ListRendering';
 import EventComponent from './interaction/EventComponent';
 import StateComponent from './interaction/StateComponent';
 import ForwordingStateComponent from './interaction/ForwordingStateComponent';
+import HookComponent1 from './hook/HookComponent1';
 
 
 
@@ -91,7 +92,8 @@ function App() {
             {/* <ListRendering /> */}
             {/* <EventComponent /> */}
             {/* <StateComponent /> */}
-            <ForwordingStateComponent />
+            {/* <ForwordingStateComponent /> */}
+            <HookComponent1 />
         </>
     );
 }
