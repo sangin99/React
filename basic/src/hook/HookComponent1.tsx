@@ -60,7 +60,7 @@ export default function HookComponent1() {
     console.log(count);
   }, [count]);
 
-  // 
+  // 스코프할 상태 배열에 두 개 이상의 상태를 지정할 수 있음 (배열에 포함된 상태 중 하나라도 변경되면 effect 가 실행됨)
   useEffect(()=> {
     console.log('count 또는 flag가 변경됨');
     console.log(count);
@@ -84,7 +84,7 @@ export default function HookComponent1() {
 
   return (
   <div>
-    {/* {flag && count}   */}
+    {flag && count}  
     {count}  
     {flag && <SubComponent />} 
     <button onClick={addCount}>+</button>
