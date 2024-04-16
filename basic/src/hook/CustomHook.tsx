@@ -86,6 +86,7 @@ function usePagination(totalList: string[]) {
 export default function CustomHook() {
     
     const { page, setPage, viewList, viewPageList, setPreviousSection, setNextSection } = usePagination(BOARD_LIST);
+    //* 동일 페이지 틀을 만들 때, `usePagination(BOARD_LIST)` 만 불러오면 된다
 
     return (
     <div>
