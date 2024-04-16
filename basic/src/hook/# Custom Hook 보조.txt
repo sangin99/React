@@ -1,0 +1,53 @@
+게시물/페이지 표시 => REACT > Custom Hook 활용
+
+EX> 
+
+107 개의 게시물
+- 한 페이지에 게시물 5개씩 보여줌
+- 페이지네이션 한 섹션당 10개 보여줌
+   <1 2 3 4 .. 9 10 >
+==================================
+# 총 페이지 수 : 22
+totalPageCount = boardCount / 5
+if (pageCount % 5 !== 0) totalPageCount ++;
+
+totalPageCount = Math.floor((boardCount - 1) / 5)
+
+**Math.floor : 내림 / 주어진 숫자와 같거나 작은 정수 중에서 가장 큰 수를 반환 _ (자바스크립트 내장객체)
+
+
+# 총 센션 수 : 3
+totalPageCount = Math.floor((boardCount - 1) / 5) + 1
+totalSectionCount = Math.floor((totalPageCount - 1) / 10) + 1
+= totalSectionCount = Math.floor((boardCount - 1) / (5*10)) + 1
+
+[a1 a2 a3 a4 a5 a6 ... a104 a105 a106]
+1 = [a0 ~ a4]
+2 = [a5 ~ a9]
+3 = [a10 ~ a14]
+...
+...
+21 = [a100 ~ a104]
+22 = []
+
+# 현재 페이지의 시작
+currentPageStart = 5*(page - 1)
+currentPageEnd = 5*page - 1
+
+// for (초기 값) 조건 증감식
+viewList = [];
+for(index = currentPageStart; index <= currentPageEnd; ++)
+   if (index >= boardList.length) break;     _ 반복문 벗어나기
+   viewList.push(boardList[index])
+----------------------------------
+1     1     10       10n-9    10n
+2     11    20       
+3     21    30
+4     31    40
+
+currentSectionStart = 10 * section - 9
+currentSectionEnd = 10 * section
+
+viewPageList = []
+for (index = currentSectionStart; index <= currentSectionEnd; ++)
+   viewPageList.push(index)

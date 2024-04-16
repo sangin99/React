@@ -16,9 +16,8 @@ export default function HookComponent2() {
         // 참조변수(null 혹은 undefined를 가질수 있는 object 타입의 변수)에서
         // 특정 속성 및 메서드를 호출하려할때 null 혹은 undefined가 아닌 상태에서만
         // 작업을 수행하도록 하려면 참조변수?.속성 혹은 참조변수?.함수()로 실행
-        // inputRef.current?.focus();
-
-        if (inputRef.current) inputRef.current.focus();
+        // inputRef.current?.focus();   .. 불완전 
+        if (inputRef.current) inputRef.current.focus();     // .. 비교적 안전
     };
 
     const onInputChangeHandler = () => {
