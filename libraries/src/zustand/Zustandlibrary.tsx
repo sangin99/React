@@ -16,19 +16,25 @@ import { create } from 'zustand';
 // - create 함수의 매개변수로 set 인자를 받는 콜백 함수를 전달해야함
 // - 매개변수로 전달한 콜백 함수는 store 객체를 반환해야 함
 // - store 객체는 상태, store 객체를 변경하는 함수가 포함됨
-const useStore = create((set) => {
-    return {
+
+// - typescript 에서 zustand 의 create 함수를 사용할 때는 create 함수의 제너릭으로 상태(store)의 타입을 지정해야함
+interface Store {
+    zNormal: number;
+    setZNormal: (zNormal: number) => void;    //return 하지 않고, set 으로 호출만한다 > 반환 타입은 없다 > void 지정
+    increaseZNormal: () => void;         //내부에서 처리하기에 매개변수 필요 x
+    decreaseZNormal: () => void;
+};
+
+// create 함수의 콜백 함수가 받는 set 인자는 상태 변경을 위한 함수
+const useStore = create<Store>((set) => ({
         zNormal: 0,
-        setZNormal: (zNormal: number) => {
-            set((state) => {
-                return {
-                    ...state,
-                    zNormal: zNormal,
-                }
-            })
-        } 
-    }
-});
+        // set 함수는 매개변수로 현재 상태(state)를 인자로 받는 콜백 함수를 전달해야함
+        // set 함수의 매개변수로 전달된 콜백함수는 상태객체 (store)를 반환해야함
+        setZNormal: (zNormal) => set(state => ({ ...state, zNormal })),
+        increaseZNormal: () => set(state => ({ ...state, zNormal: state.zNormal + 1})),
+        decreaseZNormal: () => set(state => ({ ...state, zNormal: state.zNormal - 1}))
+}));
+//? 밑의 식과 같은 선언의 다른 형태이다
 
 export default function Zustandlibrary() {
     // useState 를 이용한 상태 선언 방법
@@ -49,12 +55,21 @@ export default function Zustandlibrary() {
         setNormal(normal - 1);
     }
 
+    // zustand 로 선언한 상태 사용
+    // const { 상태들, 상태변경함수들 } = useStoreZustand훅함수();
+    const { zNormal, setZNormal, increaseZNormal, decreaseZNormal } = useStore();
+
     return (
         <div>
             <div>
                 <h4>useState 방식 : {normal}</h4>
                 <button onClick={decreaseNormal}>-</button>
                 <button onClick={increaseNormal}>+</button>
+            </div>
+            <div>
+                <h4>useState 방식 : {zNormal}</h4>
+                <button onClick={decreaseZNormal}>-</button>
+                <button onClick={increaseZNormal}>+</button>
             </div>
         </div>
     )
