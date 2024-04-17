@@ -8,6 +8,8 @@ import { create } from 'zustand';
 // - Zustand 는 단순한 코드 구조와 학습 곡선이 매우 낮음 - ex) useState 사용 수준의 학습 곡선을 요구
 // - Redux, MobX 와 같은 타 상태관리 라이브러리들에 비해 가벼움 - 빌드할 때, 패키징 속도 향상 / 빌드 후, 번들의 크기가 작아짐
 
+// npm i zustand
+
 // zustand 를 이용한 글로벌 상태 선언 방법
 // 1. zustand 의 create 함수를 사용하여 store 를 선언
 // > store : 상태와 상태 관리 로직을 하나로 묶음 객체
