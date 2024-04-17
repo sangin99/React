@@ -1,3 +1,5 @@
 zustan(상태관리 라이브러리) / react-router(페이지 이동에 관한)
 
 - 크롬에 'npm' 검색 / `npm i zustand`
+
+`store` 거치지 않고, 내부에 직접 전달이 가능하게 해주는 상태값
