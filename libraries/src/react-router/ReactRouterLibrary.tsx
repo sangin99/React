@@ -23,16 +23,24 @@ import React from 'react'
 // - index 속성 : 현재 패턴의 기본 라우터로 지정
 
 // http://localhost:3000
+// => http://localhost:3000/router
 export default function ReactRouterLibrary() {
-  return <div>ReactRouterLibrary</div>
+    return (
+        <div>
+            ReactRouterLibrary
+            <a href='http://localhost:3000/zustand'>Zustand로!</a>
+        </div>
+    )
 };
 
 // http://localhost:3000/page1
+// => http://localhost:3000/router/page1
 export function ReactRouterPage1() {
     return <h1>페이지 1</h1>
 }
 
 // http://localhost:3000/page2
+// => http://localhost:3000/router/page2
 export function ReactRouterPage2() {
     return <h1>페이지 2</h1>
 }

@@ -7,9 +7,16 @@ import ReactRouterLibrary, { ReactRouterPage1, ReactRouterPage2 } from './react-
 function App() {
   return (
     <Routes>
-      <Route index element={<ReactRouterLibrary />} />
+      {/* <Route index element={<ReactRouterLibrary />} />
       <Route path='/page1' element={<ReactRouterPage1 />} />
       <Route path='/page2' element={<ReactRouterPage2 />} />
+      <Route path='/zustand' element={<Zustandlibrary />} /> */}
+
+      <Route path='/router'>
+      <Route index element={<ReactRouterLibrary />} />
+      <Route path='page1' element={<ReactRouterPage1 />} />
+      <Route path='page2' element={<ReactRouterPage2 />} />
+      </Route>
       <Route path='/zustand' element={<Zustandlibrary />} />
     </Routes>
   );
