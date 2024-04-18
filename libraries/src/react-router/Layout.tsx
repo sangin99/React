@@ -8,11 +8,12 @@ export default function Layout() {
     // useLocation :
     // - 현재 URL 및 위치에 location 객체를 반환
     // - pathname : 현재 위치 URL
+// const location = useLocation();
     const { pathname } = useLocation();
 
   return (
     <>
-        <h2 style={{color: 'red'}}>Router: { pathname }</h2>
+        <h2 style={{color: 'red'}}>Router : { pathname }</h2>
         <Outlet />
     </>
   )

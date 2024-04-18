@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 
 // react-router 패키지
 // - react 의 SPA(Single Page Application) 에서 라우팅을 구현하기 위한 라이브러리
@@ -67,7 +67,14 @@ export default function ReactRouterLibrary() {
 // http://localhost:3000/page1
 // => http://localhost:3000/router/page1
 export function ReactRouterPage1() {
-    return <h1>페이지 1</h1>
+
+    // useParams :
+    // - <Route> 컴포넌트의 path 속성에 매칭되는 동적 URL 패턴에 따른 데이터를 받는 훅 함수
+    // - 해당 URL 경로에 대한 모든 동적 URL 패턴을 name, value 형태로 받아옴
+// const pathVariable = useParams();
+    const { value } = useParams();
+
+    return <h1>페이지 1 : {value}</h1>
 }
 
 // http://localhost:3000/page2
