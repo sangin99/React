@@ -5,6 +5,7 @@ import { Route, Routes } from 'react-router';
 import ReactRouterLibrary, { ReactRouterPage1, ReactRouterPage2 } from './react-router/ReactRouterLibrary';
 import Layout from './react-router/Layout';
 import AxiosLibrary from './axios/AxiosLibrary';
+import ReactCookieLibrary from './react-cookie/ReactCookieLibrary';
 
 function App() {
   return (
@@ -21,6 +22,8 @@ function App() {
       </Route>
       <Route path='/zustand' element={<Zustandlibrary />} />
       <Route path='/axios' element={<AxiosLibrary />} />
+      {/* <Route path='/cookie' element={<ReactCookieLibrary />} /> */}
+      <Route path='/cookie/cookie' element={<ReactCookieLibrary />} />
       <Route path='*' element={<h3>404 NOT FOUND</h3>} />
     </Routes>
   );
