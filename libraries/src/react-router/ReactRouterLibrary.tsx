@@ -88,5 +88,5 @@ export function ReactRouterPage2() {
     const [queryString] = useSearchParams();
     const time = queryString.get('time'); 
 
-    return <h1>페이지 2</h1>
+    return <h1>페이지 2 : {time}</h1>
 }
