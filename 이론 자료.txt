@@ -11,9 +11,3 @@ git 에 올릴 때, node_modules 파일은 .gitignore 되어있어 안 올라간
 확장에 ES7+ React/Redux/React-Native snippets 설치 (단축명령어를 제공해준다)
 
 서버 전체를 켜야하기때문에 `npm run start` 를 입력하면 서버(화면)가 켜진다
-
-
-
-서버 지정
-JAVA    : /router/page1/{value}
-REACT   : /router/page1/:value

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams, useSearchParams } from 'react-router-dom'
 
 // react-router 패키지
 // - react 의 SPA(Single Page Application) 에서 라우팅을 구현하기 위한 라이브러리
@@ -80,5 +80,13 @@ export function ReactRouterPage1() {
 // http://localhost:3000/page2
 // => http://localhost:3000/router/page2
 export function ReactRouterPage2() {
+
+    // useSearchParams :
+    // - 현재 URL 에 있는 쿼리 문자열을 읽을 때 사용하는 훅 함수
+    // - 쿼리 문자열에 대한 배열을 반환
+    // const queryString = useSearchParams();
+    const [queryString] = useSearchParams();
+    const time = queryString.get('time'); 
+
     return <h1>페이지 2</h1>
 }
