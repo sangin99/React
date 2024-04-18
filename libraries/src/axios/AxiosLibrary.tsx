@@ -10,12 +10,15 @@ import React from 'react'
 // - npm i axios
 export default function AxiosLibrary() {
 
+  const GET_URL ="http://localhost:4100/api/v1/user/email@email.com"
+
   // axios 객체
   // - axios 객체는 http method 에 해당하는 함수들을 포함하고 있음
   // - 각각의 http method 함수는 URL, option 을 매개변수로 받음
   // - 각각의 http method 함수의 결과는 promise 형태로 반환
   axios
-  .get(' http://localhost:4190/api/v1/user/email@email.com')
+  // .get(' http://localhost:4100/api/v1/user/email@email.com')
+  .get(GET_URL)
 // .get(' http://localhost:4100/api/v1/user/email@email.com.adsdasd') // Request failed with status code 401
 // .get(' http://localhost:4190/api/v1/user/email@email.com') // Network Error
   // 각각의 http method 함수 결과를 then 으로 받을 땐 response 객체를 매개변수로 받는 callback 함수를 전달
@@ -30,6 +33,17 @@ export default function AxiosLibrary() {
     // response 가 존재하는 에러는 error 객체에 response 가 포함되어 있음
     console.log(error);
   })
+
+//! ================================================================================ !//
+  // option 매개변수
+  // - request 의 각종 설정을 조작할 때 사용됨
+  axios.get(GET_URL, { headers: { 'Authorization' : 'Bearer 456754' }, params: {'time': '1111'} }); 
+            // 콘솔(F12) > 네트워크 에서 option 조작 확인
+
+  // request body 매개변수
+  // - post, patch, put 함수는 두번째 매개변수로 request body 데이터를 전달함
+  const PATCH_URL = 'http://localhost:4100/api/v1/user/nickname';
+  axios.patch(PATCH_URL, {email : 'email@email.com', nickname:'QWER'});
 
   return <div>AxiosLibrary</div>
  
