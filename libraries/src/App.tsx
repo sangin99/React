@@ -4,6 +4,7 @@ import Zustandlibrary from 'src/zustand/Zustandlibrary';
 import { Route, Routes } from 'react-router';
 import ReactRouterLibrary, { ReactRouterPage1, ReactRouterPage2 } from './react-router/ReactRouterLibrary';
 import Layout from './react-router/Layout';
+import AxiosLibrary from './axios/AxiosLibrary';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Route path='page2' element={<ReactRouterPage2 />} />
       </Route>
       <Route path='/zustand' element={<Zustandlibrary />} />
+      <Route path='/axios' element={<AxiosLibrary />} />
       <Route path='*' element={<h3>404 NOT FOUND</h3>} />
     </Routes>
   );
